@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		table {
+			margin: 0 auto;
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+
+		caption {
+			font-size: 30px;
+			font-weight: bolder;
+		}
+
+		th {
+			padding: 10px;
+		}
+
+		th, td {
+			border: 1px solid black;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+
+
+<script>
+	let price = prompt('请输入商品单价:')
+	let count = prompt('请输入商品数量:')
+	let address = prompt('请输入收货地址信息:')
+	let amount = parseFloat(price) * parseInt(count)
+	document.write(`<div class="container">
+		<table>
+			<caption>订单确认</caption>
+			<thead>
+				<tr>
+					<th>商品名称</th>
+					<th>商品价格</th>
+					<th>商品数量</th>
+					<th>总价</th>
+					<th>收货地址</th>
+				</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td>小米手机青春PLUS</td>
+				<td>${price}元</td>
+				<td>${count}</td>
+				<td>${amount}</td>
+				<td>${address}</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>`)
+</script>
+</body>
+</html>

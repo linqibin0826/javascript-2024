@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+	<button disabled>已阅读用户协议</button>
+	<script>
+		const btn = document.querySelector('button')
+		let count = 5
+		let number = setInterval(function () {
+			if (count === 0) {
+				clearInterval(number)
+				btn.disabled = false
+				btn.innerHTML = `已阅读用户协议`
+				return
+			}
+			btn.innerHTML = `已阅读用户协议(${count})`
+			count--
+		}, 1000);
+	</script>
+</body>
+</html>

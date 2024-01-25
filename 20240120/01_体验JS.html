@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		.pink {
+			color: pink;
+		}
+	</style>
+</head>
+<body>
+	<button class="pink">Button1</button>
+	<button>Button2</button>
+	<button>Button3</button>
+	<button>Button4</button>
+	<script>
+		let buttons = document.querySelectorAll('button');
+		for (let i = 0; i < buttons.length; i++) {
+			// 注意addEventListener的参数是事件名称，而不是onClick这种！！！(CheckPoint 01)
+			buttons[i].addEventListener('click', function () {
+				document.querySelector('.pink').className = ''
+				this.className = 'pink'
+			})
+		}
+
+	</script>
+</body>
+</html>

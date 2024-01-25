@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<script>
+	let answer = Math.floor(Math.random() * 10) + 1
+	let flag = true
+	while (flag) {
+		let guess = +prompt('请输入答案')
+		if (guess === answer) {
+			flag = false
+			alert(`猜对了, 答案就是${guess}`)
+		} else if (guess > answer) {
+			alert(`很接近了, 比${guess}小`)
+		} else {
+			alert(`比${guess}大`)
+		}
+	}
+</script>
+</body>
+</html>

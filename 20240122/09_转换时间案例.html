@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<script>
+	let num = +prompt('请输入秒数:');
+	(function (num = 0){
+		let hour = num / 60 * 60 % 24
+		let minute = num / 60 % 60
+		let second = num % 60
+		document.write(`${num}转换为${hour}小时${minute}分钟${second}秒`)
+	})(num);
+
+	console.log(10000 / 60)
+</script>
+</body>
+</html>

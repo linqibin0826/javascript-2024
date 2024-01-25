@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<script>
+	let arr = []
+	arr.push('hello', 'world')
+	arr.unshift('first', 'second')
+	console.log(arr)
+	console.log(arr[0]) // undefined
+	arr[0] = 'hello'
+	console.log(arr[0]) // hello
+	arr[2] = 'world'
+	console.log(arr[1])
+	console.log(arr[2])
+	// 计算两数的和
+	function sum(a, b) {
+		return a + b
+	}
+
+	let s = sum(1, 2)
+	console.log(s)
+	let age = 18
+	console.log(age++)
+
+	let goods = {
+		name: '小米10',
+		num: '1000000',
+		wright: '0.55kg',
+		address: '中国大陆',
+		price: '3999元'
+	}
+</script>
+</body>
+</html>

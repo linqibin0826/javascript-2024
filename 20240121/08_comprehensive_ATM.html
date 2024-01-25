@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<script>
+	let total = 0
+	let amount = 0
+	let exit
+	while (!exit) {
+		let op = +prompt(
+				`请选择您的操作:
+					1. 存钱
+					2. 取钱
+					3. 查看余额
+					4. 退出`)
+		switch (op) {
+			case 1:
+				amount = +prompt('请输入金额:')
+				total += amount
+				break
+			case 2:
+				amount = +prompt('请输入金额')
+				total -= amount
+				break
+			case 3:
+				alert(`您的余额为:${total}`)
+				break
+			case 4:
+				exit = true
+		}
+	}
+</script>
+</body>
+</html>

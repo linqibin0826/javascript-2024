@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<script>
+	// 1.页面输出1-100
+	let i = 1
+	while (i <= 100) {
+		document.write(i + '<br>')
+		i++
+	}
+
+	// 2.计算1-100的和, undefined + 0  为NaN
+	let j = 1, sum = 0
+	while (j <= 100) {
+		sum += j
+		j++
+	}
+	document.write(`The sum of 1-100 is ${sum} <br>`)
+
+	// 3. 计算1-100之间的偶数和
+	let k = 1, evenSum = 0
+	while (k <= 100) {
+		if (k % 2 === 0) {
+			evenSum += k
+		}
+		k++
+	}
+	document.write(`The sum of even numbers between 1 to 100 is ${evenSum}`)
+</script>
+</body>
+</html>

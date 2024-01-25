@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<input id="input" type="text">
+<span id="count" style="display: none">111</span>
+<script>
+	let input = document.querySelector('#input')
+	let count = document.querySelector('#count')
+	input.addEventListener('input', function () {
+		count.innerHTML = input.value.length + ''
+	})
+	input.addEventListener('focus', function () {
+		count.style.display = 'inline'
+	})
+
+	input.addEventListener('blur', function () {
+		count.style.display = 'none'
+	})
+
+</script>
+</body>
+</html>

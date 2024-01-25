@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+	<div class="container">
+		<span class="one">一等奖: </span>
+		<br>
+		<span class="two">二等奖: </span>
+		<br>
+		<span class="three">三等奖: </span>
+	</div>
+
+	<script>
+		const personArr =['zhou', 'liu', 'wang', 'zhang', 'lin']
+		const spans = document.querySelectorAll('.container span')
+		for (let i = 0; i < 3; i++) {
+			const index = Math.floor(Math.random() * personArr.length)
+			const person = personArr[index]
+			personArr.splice(index, 1)
+			spans[i].innerHTML = spans[i].innerHTML + person
+		}
+	</script>
+</body>
+</html>

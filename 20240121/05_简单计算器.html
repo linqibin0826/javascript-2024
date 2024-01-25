@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<script>
+	let num1 = +prompt('please input the first number:')
+	let num2 = +prompt('please input the second number:')
+	let operator = prompt('please input the operator:')
+	let result
+	switch (operator) {
+		case '+':
+			result = num1 + num2
+			break
+		case '-':
+			result = num1 - num2
+			break
+		case '*':
+			result = num1 * num2
+			break
+		case '/':
+			result = num1 / num2
+			break
+		default:
+			alert('Not an operator')
+	}
+	alert(`result is ${result}`)
+</script>
+</body>
+</html>

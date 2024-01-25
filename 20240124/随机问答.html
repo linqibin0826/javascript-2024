@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		.container {
+			width: 400px;
+			height: 300px;
+			background-color: skyblue;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<p class="question">题目是:</p>
+		<button class="start">开始</button>
+		<button class="end">结束</button>
+	</div>
+	<script>
+		const data = ['问题1', '问题2', '问题3', '问题4', '问题5', '问题6']
+		const q = document.querySelector('.question')
+		const startBtn = document.querySelector('.start')
+		const endBtn = document.querySelector('.end')
+		let num = 0
+		let index = 0
+		startBtn.addEventListener('click', function () {
+			num = setInterval(function () {
+				startBtn.disabled = true
+				index = Math.floor(Math.random() * data.length)
+				q.innerHTML = `${q.innerHTML.substring(0, 4)} ${data[index]}`
+				console.log(index)
+			}, 100)
+		})
+
+		endBtn.addEventListener('click', function () {
+			clearInterval(num)
+			data.splice(index, 1)
+			if (data.length === 0) {
+				startBtn.disabled = true;
+				endBtn.disabled = true;
+			} else {
+				startBtn.disabled = false
+			}
+		})
+
+
+
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		div {
+			width: 200px;
+			height: 300px;
+		}
+		.pink {
+			background-color: pink;
+		}
+		.green {
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+
+<ul class="nav">
+	<li>我的首页</li>
+	<li>产品介绍</li>
+	<li>联系方式</li>
+</ul>
+
+<div class="nav"></div>
+<script>
+	let students = [
+		{
+			username: 'hugh',
+			age: 15,
+			gender: 'male'
+		},
+		{
+			username: 'you',
+			age: 18,
+			gender: 'female'
+		}
+	]
+
+	for (let i = 0; i < students.length; i++) {
+		console.log(`The first student's info as follow:`)
+		for (let k in students[i]) {
+			console.log(`${k} => ${students[i][k]}\n`)
+		}
+		console.log('\n')
+	}
+
+	const lis = document.querySelectorAll(`.nav li`)
+	for (let i = 0; i < lis.length; i++) {
+		console.log(lis[i])
+		console.log(lis[i].innerHTML)
+	}
+
+	const div = document.querySelector('.nav')
+	div.className = 'pink'
+	div.classList.add('green')
+</script>
+</body>
+</html>
