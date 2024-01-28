@@ -1,10 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script src="../vue.js"></script>
 </head>
 <body>
-$END$
+<!-- 容器 -->
+<div id="root">
+		<!-- 插值表达式 -->
+		<h1>Hello, {{ name }}</h1>
+</div>
+<script>
+	Vue.config.productionTip = false
+	new Vue({
+		el: '#root', // el用于指定当前的Vue实例为某个容器服务, 值通常为css选择器字符串
+		data: {
+			name: 'You'
+		} // data中的数据为el所挂载的容器使用
+	}) // 参数为配置对象
+</script>
 </body>
 </html>

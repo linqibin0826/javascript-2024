@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script src="../jquery.min.js"></script>
 </head>
 <body>
-$END$
+	<div class="nav">
+		<ul>
+			<li>1</li>
+			<li class="active">2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	</div>
+
+	<script>
+		const ul = $('ul');
+		console.log(ul.parent()); // jq:<div>
+		let secondLi = ul.children('li:eq(1)');
+		console.log(secondLi); // 获取ul中第2个li
+		console.log(ul.find('li')); // 获取所有子元素
+		console.log(secondLi.siblings()); // 获取li兄弟元素
+		console.log(secondLi.nextAll()); // 之后的同辈元素
+		console.log(secondLi.prevAll('li')); // 之前的所有li
+		console.log(secondLi.hasClass('active')); // 是否包含类
+	</script>
 </body>
 </html>

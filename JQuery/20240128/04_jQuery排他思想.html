@@ -2,9 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Title</title>
+	<script src="../jquery.min.js"></script>
+	<style>
+		.active {
+			background-color: green;
+		}
+	</style>
 </head>
 <body>
-$END$
+	<div class="nav">
+		<button>menu</button>
+		<button>menu</button>
+		<button>menu</button>
+		<button>menu</button>
+		<button>menu</button>
+	</div>
+	<script>
+		$('button').click(function () {
+			$(this).css('background', 'pink')
+			$(this).siblings('button').css('background', '')
+		})
+	</script>
 </body>
 </html>
