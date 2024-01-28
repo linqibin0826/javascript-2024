@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<script>
+	const source = {
+		username: 'you',
+		hobby: ['sing', 'dance'],
+		family: {
+			username: 'lin'
+		}
+	}
+
+	let dest
+	// deepCopy(dest, source)
+	dest = JSON.parse(JSON.stringify(source))
+	dest.hobby.push('rap')
+	dest.family.password = '123456'
+	console.log(source)
+	console.log(dest)
+
+	function deepCopy(dest, source) {
+		for (const k in source) {
+			if (source[k] instanceof Array) {
+				dest[k] = []
+				deepCopy(dest[k], source[k])
+			} else if (source[k] instanceof Object) {
+				dest[k] = {}
+				deepCopy(dest[k], source[k])
+			} else {
+				dest[k] = source[k]
+			}
+		}
+	}
+
+</script>
+</body>
+</html>

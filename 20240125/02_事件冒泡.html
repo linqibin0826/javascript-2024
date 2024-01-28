@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		.fa {
+			width: 400px;
+			height: 200px;
+			background-color: green;
+		}
+		.son {
+			width: 200px;
+			height: 100px;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+<div class="fa">
+	<div class="son"></div>
+
+</div>
+<script>
+	const fa = document.querySelector('.fa')
+	const son = document.querySelector('.son')
+	fa.addEventListener('click', function (event) {
+		alert('fa')
+	})
+	son.addEventListener('click', function () {
+		alert('son')
+	})
+</script>
+</body>
+</html>
