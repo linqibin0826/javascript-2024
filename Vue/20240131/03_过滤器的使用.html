@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script src="https://cdn.bootcdn.net/ajax/libs/dayjs/1.11.9/dayjs.min.js"></script>
+	<script src="../vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		{{ timestamp }}
+		<br>
+		<!-- 串联使用 -->
+		<h3>formatted: {{ timestamp | fmtTime('YYYY-MM-DD HH:mm:ss') | slice}}</h3>
+	</div>
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				timestamp: Date.now()
+			},
+			filters: {
+				fmtTime(value, format='YYYY-MM-DD HH:mm:ss') {
+					return dayjs().format(format)
+				},
+				slice(value) {
+					return value.slice(0, 10)
+				}
+			}
+		})
+	</script>
+</body>
+</html>

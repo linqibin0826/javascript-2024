@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+	<h3>n原来为{{ n }}</h3>
+	n扩大10倍后, 值为<h3 v-big="n"> </h3>
+</div>
+<script>
+	new Vue({
+		el: '#app',
+		data: {
+			n: 10
+		},
+		directives: {
+			big(ele, binding) {
+				console.log(binding)
+				ele.innerText = binding.value * 10
+			}
+		}
+	})
+</script>
+</body>
+
+</html>
