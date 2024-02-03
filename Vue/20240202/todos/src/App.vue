@@ -3,14 +3,15 @@
     <div class="todo-container">
       <div class="todo-wrap">
         <MyHeader :addTodo="addTodo"/>
-        <MyList :todoList="todos" :handleCheck="checkTodo" :del="deleteTodo"/>
-        <MyFooter :todo-list="todos" :check-all="checkAll"  :delAll="clearDone"/>
+        <MyList :todoList="todos"/>
+        <MyFooter :todo-list="todos" @checkAll="checkAll"  @clearDone="clearDone"/>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import pubSub from 'pubsub-js'
 
 import MyHeader from "@/components/MyHeader.vue";
 import MyList from "@/components/MyList.vue";
@@ -21,17 +22,22 @@ export default {
   components: {MyFooter, MyList, MyHeader},
   data() {
     return {
-      todos: [
-        {id: '001', title: '吃饭', done:true},
-        {id: '002', title: '睡觉', done:false},
-        {id: '003', title: '打豆豆', done:true}
-      ]
+      pid: '',
+      todos: JSON.parse(localStorage.getItem('todos')) || []
+    }
+  },
+  watch: {
+    todos: {
+      deep: true,
+      handler(val) {
+        localStorage.setItem("todos", JSON.stringify(val))
+      }
     }
   },
   methods: {
     // 数据写在哪里, 修改数据的方法就应该出现在哪里
     addTodo(todo) {
-      this.todos.push(todo)
+      this.todos.unshift(todo)
     },
     checkTodo(id) {
       this.todos.forEach(todo => {
@@ -49,6 +55,16 @@ export default {
     checkAll(check) {
       this.todos.map(todo => todo.done=check)
     }
+  },
+  mounted() {
+    // 绑定事件
+    this.$bus.$on('handleCheck', this.checkTodo)
+    // this.$bus.$on('handleDelete', this.deleteTodo)
+    this.pid = pubSub.subscribe('handleDelete', this.deleteTodo)
+    console.log(`subscribe success, pid: ${this.pid}`)
+  },
+  beforeDestroy() {
+    pubSub.unsubscribe(this.pid)
   }
 }
 </script>

@@ -3,7 +3,7 @@ import MyItem from "@/components/MyItem.vue";
 
 export default {
   components: {MyItem},
-  props: ['todoList', 'handleCheck', 'del']
+  props: ['todoList']
 }
 
 </script>
@@ -14,8 +14,6 @@ export default {
         :todo="item"
         v-for="item in todoList"
         :key="item.id"
-        :handleCheck="handleCheck"
-        :del="del"
     />
   </ul>
 </template>

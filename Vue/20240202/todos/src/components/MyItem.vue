@@ -1,6 +1,16 @@
 <script>
+import pubSub from "pubsub-js";
+
   export default {
-    props: ['todo', 'handleCheck', 'del']
+    props: ['todo'],
+    methods: {
+      handleCheck(id) {
+        this.$bus.$emit('handleCheck', id)
+      },
+      handleDelete(todo) {
+        pubSub.publish('handleDelete', todo)
+      }
+    }
   }
 </script>
 
@@ -10,7 +20,7 @@
       <input type="checkbox" :checked="todo.done" @change="handleCheck(todo.id)"/>
       <span>{{ todo.title }}</span>
     </label>
-    <button class="btn btn-danger" @click="del(todo)">删除</button>
+    <button class="btn btn-danger" @click="handleDelete(todo)">删除</button>
   </li>
 </template>
 

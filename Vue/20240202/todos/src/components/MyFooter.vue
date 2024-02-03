@@ -1,6 +1,6 @@
 <script>
   export default {
-    props: ['delAll', 'todoList', 'checkAll'],
+    props: ['todoList'],
     computed: {
       doneCount() {
         return this.todoList.filter(item => item.done).length
@@ -13,19 +13,28 @@
           this.checkAll(val)
         }
       }
+    },
+    methods: {
+      checkAll() {
+        this.$emit('checkAll')
+      },
+      deleteAll() {
+        this.$emit('clearDone')
+      }
     }
+
   }
 </script>
 
 <template>
   <div class="todo-footer" v-show="todoList.length > 0">
-    <label>9
+    <label>
       <input type="checkbox" v-model="isAll"/>
     </label>
     <span>
           <span>已完成 {{ doneCount }}</span> / 全部{{ todoList.length }}
         </span>
-    <button class="btn btn-danger" @click="delAll">清除已完成任务</button>
+    <button class="btn btn-danger" @click="deleteAll">清除已完成任务</button>
   </div>
 </template>
 
