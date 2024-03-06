@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+	<button v-bind:disabled="buttonValue">Button</button>
+
+	<div id="example">
+		<p>Original message: "{{ message }}"</p>
+		<p>Computed reversed message: "{{ reversedMessage }}"</p>
+
+		<div id="computedDemo">
+			<template v-if="loginType === 'username'">
+				<input placeholder="hello">
+			</template>
+			<template v-else>
+				<input placeholder="world">
+			</template>
+			<button @click="toggleLoginType()">toggle</button>
+		</div>
+	</div>
+</div>
+</body>
+<script>
+	let vm = new Vue({
+		el: '#app',
+		// 只有在Vue实例被创建时就已经存在于data中的property才是响应式的
+		data: {
+			a: 1,
+			buttonValue: false,
+			message: 'Hello World',
+			firstName: '',
+			lastName: '',
+			loginType: 'username'
+		},
+		methods: {
+			toggleLoginType() {
+				this.loginType === '' ? this.loginType = 'username' : this.loginType = ''
+			}
+
+		},
+		computed: {
+			reversedMessage() {
+				return this.message.split('').reverse().join('')
+			},
+			fullName: {
+				get() {
+					return this.firstName + ' ' + this.lastName
+				},
+				set(value) {
+					let arr = value.split(' ')
+					this.firstName = arr[0]
+					this.lastName = arr[1]
+				}
+			}
+		}
+	})
+	console.log(vm.$el === document.querySelector('.app'))
+
+</script>
+</html>
